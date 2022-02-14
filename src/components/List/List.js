@@ -9,7 +9,6 @@ const ListStyled = styled.ul`
 `;
 
 const List = () => {
-  console.log(tasksApi[0]);
   return (
     <ListStyled>
       {tasksApi.map((taskApi) => (
