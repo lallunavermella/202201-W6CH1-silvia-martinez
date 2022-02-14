@@ -15,7 +15,6 @@ const Task = ({ id, name, done }) => {
   return (
     <StyledTask>
       <p className={done ? "done" : ""}></p>
-
       <p className="delete">X</p>
     </StyledTask>
   );
