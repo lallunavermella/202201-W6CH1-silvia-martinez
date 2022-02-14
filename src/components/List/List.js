@@ -1,6 +1,9 @@
 import Task from "../Task/Task";
 import styled from "styled-components";
-import { tasksApi } from "../../data/tasksApi";
+
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { loadTasksThunk } from "../../redux/thunks/thunks";
 
 const ListStyled = styled.ul`
   list-style: none;
@@ -9,10 +12,17 @@ const ListStyled = styled.ul`
 `;
 
 const List = () => {
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasks);
+
+  useEffect(() => {
+    dispatch(loadTasksThunk);
+  }, [dispatch]);
+
   return (
     <ListStyled>
-      {tasksApi.map((taskApi) => (
-        <Task name={taskApi.name} done={taskApi.done} key={taskApi.id} />
+      {tasks.map((task) => (
+        <Task name={task.name} done={task.done} key={task.id} />
       ))}
     </ListStyled>
   );
