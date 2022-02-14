@@ -1,4 +1,4 @@
-import actionTypes from "../actions/actionsTypes";
+import actionTypes from "../actions/actionTypes";
 
 const tasksReducer = (currentTasks = [], action = {}) => {
   let newTasks;
