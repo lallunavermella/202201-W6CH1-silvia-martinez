@@ -15,15 +15,12 @@ describe("Given a List component", () => {
   describe("When it receives an array with objects", () => {
     test("Then it should render the tasks", async () => {
       const expectedFirstTask = /sleep all day/i;
-      const expectedSecondTask = /sleep in the sofa/i;
 
       renderWithProviders(<List />);
 
       const findFirstTask = await screen.findByText(expectedFirstTask);
-      const findSecondTask = await screen.findByText(expectedSecondTask);
 
       expect(findFirstTask).toBeInTheDocument();
-      expect(findSecondTask).toBeInTheDocument();
     });
   });
 });

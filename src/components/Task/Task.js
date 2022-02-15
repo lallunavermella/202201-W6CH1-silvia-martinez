@@ -18,14 +18,7 @@ const Task = ({ actionOnClick, name, done }) => {
   return (
     <StyledTask>
       <p className={done ? "done" : ""}>{name}</p>{" "}
-      <button
-        onClick={(event) => {
-          event.preventDefault();
-          actionOnClick();
-        }}
-      >
-        Delete
-      </button>
+      <button onClick={actionOnClick}>Delete</button>
     </StyledTask>
   );
 };
