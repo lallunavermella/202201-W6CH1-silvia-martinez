@@ -1,4 +1,4 @@
-import { loadTasksActions, deleteTaskActions } from "../actions/actionCreators";
+import { deleteTaskActions, loadTasksActions } from "../actions/actionCreators";
 
 export const loadTasksThunk = async (dispatch) => {
   const response = await fetch("https://todo-gatete.herokuapp.com/gatetes");
@@ -8,12 +8,10 @@ export const loadTasksThunk = async (dispatch) => {
 };
 
 export const deleteTaskThunk = (id) => async (dispatch) => {
-  const response = await fetch(
-    `https://todo-gatete.herokuapp.com/gatetes/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
+  const response = await fetch(`${process.env.REACT_APP_API_URL}${id}`, {
+    method: "DELETE",
+  });
+
   if (response.ok) {
     dispatch(deleteTaskActions(id));
   }
