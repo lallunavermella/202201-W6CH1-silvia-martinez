@@ -8,14 +8,22 @@ export const handlers = [
         {
           id: 1,
           name: "sleep all day",
-          done: true,
         },
         {
           id: 2,
-          name: "sleep",
-          done: false,
+          name: "sleep in the sofa",
+        },
+        {
+          id: 3,
+          name: "scratch the sofa",
         },
       ])
     );
   }),
+  rest.delete(`process.env.REACT_APP_API_URL/${2}`, (req, res, ctx) =>
+    res(ctx.status(200), ctx.json({}))
+  ),
+  rest.delete(`process.env.REACT_APP_API_URL/${10}`, (req, res, ctx) =>
+    res(ctx.status(404), ctx.json({}))
+  ),
 ];
