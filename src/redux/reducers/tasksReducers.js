@@ -13,4 +13,5 @@ const tasksReducer = (currentTasks = [], action = {}) => {
   }
   return newTasks;
 };
+
 export default tasksReducer;
