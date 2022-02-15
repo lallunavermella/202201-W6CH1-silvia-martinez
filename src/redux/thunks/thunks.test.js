@@ -12,7 +12,7 @@ describe("Given a load thunk function", () => {
   });
 });
 describe("Given a delete thunk function", () => {
-  describe("When it's invoked with id+10", () => {
+  describe("When it's invoked with id=10", () => {
     test("it shouldn't call a dispatch", async () => {
       const dispatch = jest.fn();
       const id = 10;
@@ -24,6 +24,7 @@ describe("Given a delete thunk function", () => {
       expect(dispatch).not.toHaveBeenCalled();
     });
   });
+
   describe("When it's invoked a with id=2", () => {
     test("it should call a dispatch", async () => {
       const dispatch = jest.fn();
