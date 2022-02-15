@@ -8,16 +8,13 @@ export const loadTasksThunk = async (dispatch) => {
 };
 
 export const deleteTaskThunk = (id) => async (dispatch) => {
-  const request = {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  };
   const response = await fetch(
-    `https://todo-gatete.herokuapp.com/gatetes${id}`,
-    request
+    `https://todo-gatete.herokuapp.com/gatetes/${id}`,
+    {
+      method: "DELETE",
+    }
   );
-
-  const tasksList = await response.json();
-
-  dispatch(deleteTaskActions(tasksList));
+  if (response.ok) {
+    dispatch(deleteTaskActions(id));
+  }
 };
