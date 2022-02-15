@@ -1,5 +1,5 @@
 import { loadTasksActions } from "../actions/actionCreators";
-import tasksReducer from "./tasksReducer";
+import tasksReducer from "./tasksReducers";
 
 describe("Given a TasksReducer", () => {
   describe("When given a current object and action", () => {
