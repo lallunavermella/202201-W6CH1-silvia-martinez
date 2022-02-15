@@ -1,4 +1,4 @@
-import { loadTasksActions } from "./actionCreators";
+import { deleteTaskActions, loadTasksActions } from "./actionCreators";
 
 describe("Given a loadTasksAction", () => {
   describe("When it receives a task 1 and task 2", () => {
@@ -14,6 +14,22 @@ describe("Given a loadTasksAction", () => {
 
       const expectedAction = { type: "load-tasks", tasks: tasks };
       const action = loadTasksActions(tasks);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+  describe("When it receives an action delete", () => {
+    test("Then it should return an action with tasks inside", () => {
+      const tasks = [
+        {
+          id: 1,
+          name: "sleep",
+          done: false,
+        },
+        { id: 2, name: "sleep", done: true },
+      ];
+
+      const expectedAction = { type: "delete-task", task: tasks };
+      const action = deleteTaskActions(tasks);
       expect(action).toEqual(expectedAction);
     });
   });
