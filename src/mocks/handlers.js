@@ -7,23 +7,23 @@ export const handlers = [
       ctx.json([
         {
           id: 1,
-          name: "sleep all day",
+          name: "task1",
         },
         {
           id: 2,
-          name: "sleep in the sofa",
+          name: "task2",
         },
         {
           id: 3,
-          name: "scratch the sofa",
+          name: "task3",
         },
       ])
     );
   }),
-  rest.delete(`process.env.REACT_APP_API_URL/${2}`, (req, res, ctx) =>
+  rest.delete(`${process.env.REACT_APP_API_URL}/2`, (req, res, ctx) =>
     res(ctx.status(200), ctx.json({}))
   ),
-  rest.delete(`process.env.REACT_APP_API_URL/${10}`, (req, res, ctx) =>
+  rest.delete(`${process.env.REACT_APP_API_URL}/10`, (req, res, ctx) =>
     res(ctx.status(404), ctx.json({}))
   ),
 ];
