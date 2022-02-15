@@ -22,14 +22,15 @@ describe("Given a loadTasksAction", () => {
       const tasks = [
         {
           id: 1,
-          name: "sleep",
+          name: "task1",
           done: false,
         },
-        { id: 2, name: "sleep", done: true },
+        { id: 2, name: "task2", done: true },
       ];
 
-      const expectedAction = { type: "delete-task" };
-      const action = deleteTaskActions(tasks);
+      const expectedAction = { type: "delete-task", id: 1 };
+
+      const action = deleteTaskActions(tasks[0].id);
       expect(action).toEqual(expectedAction);
     });
   });
