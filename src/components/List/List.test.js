@@ -14,7 +14,7 @@ describe("Given a List component", () => {
   });
   describe("When it receives an array with objects", () => {
     test("Then it should render the tasks", async () => {
-      const expectedFirstTask = /sleep all day/i;
+      const expectedFirstTask = /task1/i;
 
       renderWithProviders(<List />);
 
