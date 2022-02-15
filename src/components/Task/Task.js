@@ -14,10 +14,11 @@ const StyledTask = styled.li`
   }
 `;
 
-const Task = ({ id, name, done }) => {
+const Task = ({ actionOnClick, name, done }) => {
   return (
     <StyledTask>
-      <p className={done ? "done" : ""}>{name}</p> <p className="delete">X</p>
+      <p className={done ? "done" : ""}>{name}</p>{" "}
+      <button onClick={actionOnClick}>Delete</button>
     </StyledTask>
   );
 };

@@ -28,7 +28,7 @@ describe("Given a loadTasksAction", () => {
         { id: 2, name: "sleep", done: true },
       ];
 
-      const expectedAction = { type: "delete-task", task: tasks };
+      const expectedAction = { type: "delete-task" };
       const action = deleteTaskActions(tasks);
       expect(action).toEqual(expectedAction);
     });
