@@ -30,4 +30,22 @@ describe("Given a TasksReducer", () => {
       expect(newTasks).toHaveLength(0);
     });
   });
+  describe("When it receives an id and the action deleteTask", () => {
+    test("Then it should return all the tasks minus the one corresponding to the id", () => {
+      const currentTasks = [
+        { name: "make a commit", id: 1, done: true },
+        { name: "make a push", id: 2, done: false },
+      ];
+      const id = 1;
+      const expectedTasks = [{ name: "make a push", id: 2, done: false }];
+      const action = {
+        type: "delete-task",
+        id: id,
+      };
+
+      const newTasks = tasksReducer(currentTasks, action);
+
+      expect(newTasks).toEqual(expectedTasks);
+    });
+  });
 });
